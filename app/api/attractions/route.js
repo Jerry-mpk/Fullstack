@@ -1,28 +1,3 @@
-// import { NextResponse } from "next/server";
-
-// export async function GET(request) {
-//     const data = {
-//         "text": "Hello World"
-//     };
-//     return NextResponse.json(data);
-// }
-
-
-//< ---------- second ---------- >
-
-
-// import { NextResponse } from "next/server";
-// import { mysqlPool} from "@/utils/db";
-
-// export async function GET(request) {
-//     const promisePool = mysqlPool.promise();
-//     const [rows, fields] = await promisePool.query('SELECT * FROM attractions');
-//     return NextResponse.json(rows);
-// }
-
-
-// < ---------- CRUD ---------- >
-
 import { NextResponse } from "next/server";
 import { mysqlPool } from "@/utils/db";
 
@@ -37,6 +12,7 @@ export async function GET() {
 export async function POST(request) {
   try {
     const body = await request.json();
+    // return NextResponse.json(body);
     const { name, detail, coverimage, latitude, longitude } = body;
     
     const promisePool = mysqlPool.promise();
@@ -58,3 +34,4 @@ export async function POST(request) {
     )
   }
 }
+
